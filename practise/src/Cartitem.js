@@ -1,26 +1,7 @@
 import React from 'react'
 
 const  Cartitem = (props)=> {
-  
-//   constructor(){
-//     super()
-//     this.state={
-//           price:999,
-//           title:'Phone',
-//           qty:0,
-//           img:'',
-//       }
-//   }
-// increase=()=>{
-//       console.log("Increase")
-    
-//       this.setState({
-//           qty:this.state.qty+=1
-//       })
-      
-//   }
-  
-    //   console.log(this.props,"props")
+
       const {price  ,qty , title}=props.product
       const {product , onIncrease,onDecrease,onDelete}=props
   
