@@ -21,18 +21,52 @@ export default class  Cart extends React.Component {
           },{
               price:900,
               title:'Television',
-              qty:0,
+              qty:10,
               id:902,
           }
             ]}
         }
-      increase=()=>{
+      increase=(product)=>{
         console.log("Increase")
+         const {products}=this.state
       
+        const index= products.indexOf(product)
+        products[index].qty+=1
         this.setState({
-            qty:this.state.qty+=1
+            products
         })
         
+    }
+    decrease=(product)=>{
+        const {products}=this.state
+        const index=products.indexOf(product)
+        if(products[index].qty==0){
+            return
+        }
+        products[index].qty-=1
+
+        this.setState({
+            products
+        })
+    
+    }
+    delete=(id)=>{
+        const {products}=this.state
+        const index=products.filter((item)=>item.id!==id)
+        this.setState({
+            products:index
+        })
+
+
+    }
+    total=()=>{
+        const{products}=this.state
+        let cartTotal=0
+        products.map((product)=>{
+          cartTotal=cartTotal+product.qty*product.price
+        })
+        return cartTotal
+    
     }
       render(){
 
@@ -41,8 +75,9 @@ export default class  Cart extends React.Component {
         <div className='cart'>
            
             {products.map((product)=>{
-                return  <Cartitem product={product} key={product.id}/>
+                return  <Cartitem product={product} key={product.id} OnIncrease={this.increase} onDecrease={this.decrease} onDelete={this.delete}/>
             })}
+            <div>TOTAL:{this.total()}</div>
             
             
         </div>
