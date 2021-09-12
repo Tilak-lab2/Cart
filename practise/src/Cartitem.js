@@ -3,7 +3,7 @@ import React from 'react'
 const  Cartitem = (props)=> {
 
       const {price  ,qty , title}=props.product
-      const {product , onIncrease,onDecrease,onDelete}=props
+      const {product , OnIncrease,OnDecrease,OnDelete}=props
   
       return (
         <div className='cart-item'>
@@ -18,9 +18,9 @@ const  Cartitem = (props)=> {
         
           <div style={{color:'#777'}}>Qty:-{qty}</div>
           <div className='cart-item-actions'>
-            <img alt="increase"  className='action-icons' onClick={()=>props.onIncrease(props.product)}  src='https://image.flaticon.com/icons/png/512/1237/1237946.png'/>
-            <img alt="decrease"  className='action-icons' onClick={()=>props.onDecrease(props.product)} src='https://image.flaticon.com/icons/png/512/56/56889.png'/>
-            <img alt="delete"  className='action-icons' onClick={()=>props.onDelete(product.id)} src='https://image.flaticon.com/icons/png/512/1214/1214428.png'/>
+            <img alt="increase"  className='action-icons' onClick={()=>props.OnIncrease(props.product)}  src='https://image.flaticon.com/icons/png/512/1237/1237946.png'/>
+            <img alt="decrease"  className='action-icons' onClick={()=>props.OnDecrease(props.product)} src='https://image.flaticon.com/icons/png/512/56/56889.png'/>
+            <img alt="delete"  className='action-icons' onClick={()=>props.OnDelete(product.id)} src='https://image.flaticon.com/icons/png/512/1214/1214428.png'/>
             
           </div>
         </div>
